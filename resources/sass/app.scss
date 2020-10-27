@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Font Awesome
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+
+// DataTable
+@import "~datatables.net-bs4/css/dataTables.bootstrap4.min.css";
+
+
+//Select2
+@import "~select2/dist/css/select2.css";
+
+// AdminLTE
+@import "~admin-lte/build/scss/AdminLTE.scss";
+
+//OverlayScrollbars
+@import "~overlayscrollbars/css/OverlayScrollbars.min.css";
+
+.button-index{
+    white-space: nowrap;
+}
+.button-index > *{
+    display: inline-block;
+} 
+.select2{
+    width: 100% !important;
+}
+.has-error .select2-selection {
+    border-color: rgb(185, 74, 72) !important;
+}
