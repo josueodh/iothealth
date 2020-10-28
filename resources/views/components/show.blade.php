@@ -11,8 +11,7 @@
         <div class="card-body">
             {{ $form ?? null }}
         </div>
-        <div class="card-footer">
-        </div>
+        
     </div>
 </div>
 

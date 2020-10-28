@@ -15,14 +15,13 @@
                     <td>{{ $patient->name }}</td>
                     <td>{{ $patient->icd }}</td>
                     <td class="button-index">
-											<a href="{{ route('patients.show', $patient->id) }}" class="btn btn-secondary"><i class="fas fa-notes-medical"></i></a>
+                        <a href="{{ route('patients.show', $patient->id) }}" class="btn btn-secondary"><i class="fas fa-notes-medical"></i></a>
                         <a href="{{ route('patients.edit', $patient->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                         <form class="form-delete" action="{{ route('patients.destroy', $patient->id) }}" method="post">
                             @csrf
                             @method('delete')
                             <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-												</form>
-												
+                        </form>
                     </td>
                 </tr>
             @empty

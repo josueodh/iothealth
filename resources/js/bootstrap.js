@@ -16,6 +16,7 @@ try {
     require('admin-lte');
     require('overlayscrollbars');
     require('jquery-mask-plugin');
+    require('chart.js');
 } catch (e) {}
 
 /**

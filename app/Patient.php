@@ -8,6 +8,12 @@ class Patient extends Model
 {
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
+
+    public function measurements(){
+        return $this->hasMany('App\Measurement');
+    }
+
+    
     public function getAdressAttribute(){
         $adress = $this->street . ',' . $this->number;
         if($this->complement){

@@ -3,8 +3,8 @@
     <span>
       <a href="/" id="link-logo" class="brand-link icone-img link-logo">
         <span class="fa-stack">
-          <img src="{{ asset('img/logo.png') }}" class="img-fluid" >
-          <span class="brand-text font-weight-light">Gerir</span>
+          <img src="{{ asset('img/logo.png') }}" class="img-fluid ml-1" >
+          <span class="brand-text font-weight-light">Iot Health</span>
         </span>
       </a>
     </span>
@@ -47,6 +47,15 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('measurements.index') }}" class="nav-link {{ Route::is('measurements.index') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-chart-line"></i>
+              <p>
+                Dados
+              </p>
+            </a>
+          </li>
+          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
