@@ -13,12 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('/patients', 'PatientController');
-Route::resource('/measurements', 'MeasurementController');
+Route::middleware('auth')->group(function () {
+    Route::get('/', function () {
+        return view('home');
+    });
+    Route::resource('/patients', 'PatientController');
+    Route::resource('/measurements', 'MeasurementController');
+});

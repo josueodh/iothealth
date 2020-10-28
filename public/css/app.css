@@ -50175,3 +50175,7 @@ a.text-muted:hover {
   border-color: #b94a48 !important;
 }
 
+.img-dashboard {
+  max-height: 500px;
+}
+

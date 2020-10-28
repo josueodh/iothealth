@@ -19,13 +19,16 @@
           </a>
         </div>
         <div class="info">
-          <a href="#" class="d-block">Usuário</a>
+          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
         </div>
         <div class="info align-self-center">
-          <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-            <i class="nav-icon fas fa-power-off"></i>
+          <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+              <i class="nav-icon fas fa-power-off"></i>
           </a>
-        </div>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              {{ csrf_field() }} 
+          </form>
+      </div>
       </div>
   
       <!-- Sidebar Menu -->
