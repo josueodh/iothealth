@@ -21,7 +21,7 @@
             </div>
         @enderror
     </div>
-    <div class="form-group col-sm-12 col-md-6">
+    <div class="form-group col-sm-12">
         <label for="phone">Telefone </label>
         <input type="phone" name="phone" id="phone" class="form-control @error('phone') is-invalid @enderror" required value="{{ old('phone',$patient->phone) }}">
         @error('phone')
@@ -30,10 +30,15 @@
             </div>
         @enderror
     </div>
-    <div class="form-group col-sm-12 col-md-6">
-        <label for="icd">CID </label>
-        <input type="phone" name="icd" id="icd" class="form-control @error('icd') is-invalid @enderror" required value="{{ old('icd',$patient->icd) }}">
-        @error('icd')
+    <div class="col-12 form-group">
+        <label for="cid_id">CID</label>
+        <select name="cid_id[]" id="cid_id" multiple class="form-control select2 @error('cid_id') is-invalid has-error @enderror"  value="{{ old('cid_id', $patient->cid_id) }}">
+            <option></option>
+            @foreach($cids as $cid)
+                <option value="{{ $cid->id }}">{{ $cid->name }} - {{ $cid->code }}</option>
+            @endforeach
+        </select>
+        @error('cid_id')
             <div class="invalid-feedback">
                 <strong>{{ $message }}</strong>
             </div>
@@ -115,6 +120,7 @@
 
 @push('scripts')
     <script>
+        $('.select2').select2();
         var behavior = function (val) {
             return val.replace(/\D/g, '').length === 11 ? '(00) 0 0000-0000' : '(00) 0000-00009';
         },

@@ -28,7 +28,6 @@ class PatientRequest extends FormRequest
             'cep' => 'required|min:9',
             'neighborhood' => 'required|min:3',
             'born_date' => 'required|date',
-            'icd' => 'required|min:2',
             'pathology' => 'required|min:5',
         ];
     }
@@ -46,7 +45,6 @@ class PatientRequest extends FormRequest
             'cep' => 'CEP',
             'neighborhood' => 'bairro',
             'born_date' => 'data de nascimento',
-            'icd' => 'cid',
             'pathology' => 'patologia'
         ];
     }

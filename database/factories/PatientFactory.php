@@ -17,7 +17,6 @@ $factory->define(Patient::class, function (Faker $faker) {
         'city' => $faker->cityPrefix,
         'state' => $faker->state,
         'born_date' => $faker->dateTime($max = 'now', $timezone = null),
-        'icd' => $faker->word,
         'pathology' => $faker->text($maxNbChars = 200),
     ];
 });

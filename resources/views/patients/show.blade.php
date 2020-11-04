@@ -41,7 +41,9 @@
                 </p>
                 <hr>
                 <strong><i class="fas fa-file-medical mr-1"></i> CID</strong>
-                <p class="text-muted">{{ $patient->icd }}</p>
+                  @foreach($patient->cids as $cid)
+                    <p class="text-muted">{{ $cid->name }} - {{ $cid->code }}</p>
+                  @endforeach
                 <hr>
                 <strong><i class="fas fa-map-marker-alt mr-1"></i> Endereço</strong>
                 <p class="text-muted">{{ $patient->adress }}</p>

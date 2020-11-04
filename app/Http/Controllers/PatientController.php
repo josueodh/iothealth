@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Patient;
+use App\Cid;
 use Illuminate\Http\Request;
 use App\Http\Requests\PatientRequest;
 class PatientController extends Controller
@@ -26,7 +27,8 @@ class PatientController extends Controller
     public function create()
     {
         $patient = new Patient();
-        return view('patients.create',compact('patient'));
+        $cids = Cid::take(500)->get();
+        return view('patients.create',compact('patient','cids'));
     }
 
     /**
@@ -37,7 +39,8 @@ class PatientController extends Controller
      */
     public function store(PatientRequest $request)
     {
-        Patient::create($request->all());
+        $patient = Patient::create($request->all());
+        $patient->cids()->attach($request->cid_id);
         return redirect()->route('patients.index')->with('success',true);
     }
 
@@ -73,6 +76,7 @@ class PatientController extends Controller
     public function update(PatientRequest $request, Patient $patient)
     {
         $patient->update($request->all());
+        $patient->cids()->sync($request->cid);
         return redirect()->route('patients.index')->with('success',true);
     }
 

@@ -13,6 +13,10 @@ class Patient extends Model
         return $this->hasMany('App\Measurement');
     }
 
+
+    public function cids(){
+        return $this->belongsToMany('App\Cid','cids_patients','cid_id','patient_id');
+    }
     
     public function getAdressAttribute(){
         $adress = $this->street . ',' . $this->number;

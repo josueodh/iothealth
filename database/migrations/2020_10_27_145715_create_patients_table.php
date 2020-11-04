@@ -22,7 +22,6 @@ class CreatePatientsTable extends Migration
             $table->string('number');
             $table->string('complement')->nullable();
             $table->string('neighborhood');
-            $table->string('icd');
             $table->longText('pathology');
             $table->string('city');
             $table->string('state');
