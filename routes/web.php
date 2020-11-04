@@ -22,4 +22,5 @@ Route::middleware('auth')->group(function () {
     });
     Route::resource('/patients', 'PatientController');
     Route::resource('/measurements', 'MeasurementController');
+    Route::resource('/diaries', 'DiaryController');
 });

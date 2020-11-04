@@ -13,6 +13,9 @@ class Patient extends Model
         return $this->hasMany('App\Measurement');
     }
 
+    public function diaries(){
+        return $this->hasMany('App\Diary');
+    }
 
     public function cids(){
         return $this->belongsToMany('App\Cid','cids_patients','cid_id','patient_id');

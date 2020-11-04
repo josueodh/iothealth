@@ -58,6 +58,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('diaries.index') }}" class="nav-link {{ Route::is('diaries.index') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-shoe-prints"></i>
+              <p>
+                Sono / Passos
+              </p>
+            </a>
+          </li>
           
         </ul>
       </nav>
