@@ -17,7 +17,6 @@ class CreateMeasurementsTable extends Migration
             $table->id();
             $table->float('temperature');
             $table->integer('heart_rate');
-            $table->time('sleep');
             $table->string('arterial_frequency');
             $table->dateTime('time', 0);
             $table->unsignedBigInteger('patient_id');

@@ -27,8 +27,7 @@ class PatientController extends Controller
     public function create()
     {
         $patient = new Patient();
-        $cids = Cid::take(500)->get();
-        return view('patients.create',compact('patient','cids'));
+        return view('patients.create',compact('patient'));
     }
 
     /**
@@ -39,6 +38,11 @@ class PatientController extends Controller
      */
     public function store(PatientRequest $request)
     {
+        $cids = Cid::all();
+        $request->cid_id = explode(',', $request->cid_id);
+        foreach($request->cid_id as $key => $code){
+            $request->cid_id[$key] = $cids->where('code', $code)->first()->id;
+        }
         $patient = Patient::create($request->all());
         $patient->cids()->attach($request->cid_id);
         return redirect()->route('patients.index')->with('success',true);
@@ -75,6 +79,11 @@ class PatientController extends Controller
      */
     public function update(PatientRequest $request, Patient $patient)
     {
+        $cids = Cid::all();
+        $request->cid_id = explode(',', $request->cid_id);
+        foreach($request->cid_id as $key => $code){
+            $request->cid_id[$key] = $cids->where('code', $code)->first()->id;
+        }
         $patient->update($request->all());
         $patient->cids()->sync($request->cid);
         return redirect()->route('patients.index')->with('success',true);

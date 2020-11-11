@@ -20,10 +20,6 @@
         </div>
     </div>
     <div class="col-12 form-group">
-        <label for="sleep">Horas de Sono</label>
-        <input type="time" id="sleep" name="sleep" required class="form-control"  value="{{ old('sleep', $measurement->sleep) }}">
-    </div>
-    <div class="col-12 form-group">
         <label for="arterial_frequency">Frequência Arterial</label>
         <div class="input-group mb-3">
             <input type="text" id="arterial_frequency" name="arterial_frequency" required 

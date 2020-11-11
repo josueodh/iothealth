@@ -32,12 +32,7 @@
     </div>
     <div class="col-12 form-group">
         <label for="cid_id">CID</label>
-        <select name="cid_id[]" id="cid_id" multiple class="form-control select2 @error('cid_id') is-invalid has-error @enderror"  value="{{ old('cid_id', $patient->cid_id) }}">
-            <option></option>
-            @foreach($cids as $cid)
-                <option value="{{ $cid->id }}">{{ $cid->name }} - {{ $cid->code }}</option>
-            @endforeach
-        </select>
+        <input type="text" name="cid_id" id="cid_id" placeholder="Digite o código separado por ," class="form-control @error('cid_id') is-invalid @enderror" required value="{{ old('cid_id',$patient->cid_id) }}">
         @error('cid_id')
             <div class="invalid-feedback">
                 <strong>{{ $message }}</strong>
@@ -73,7 +68,7 @@
     </div>
     <div class="form-group col-sm-12 col-md-2">
         <label for="number">Número </label>
-        <input type="number" step="1" name="number" id="number" class="form-control @error('number') is-invalid @enderror required value="{{ old('number' , $patient->number) }}">
+        <input type="number" step="1" name="number" id="number" class="form-control @error('number') is-invalid @enderror" required value="{{ old('number' , $patient->number) }}">
         @error('number')
             <div class="invalid-feedback">
                 <strong>{{ $message }}</strong>
@@ -120,7 +115,6 @@
 
 @push('scripts')
     <script>
-        $('.select2').select2();
         var behavior = function (val) {
             return val.replace(/\D/g, '').length === 11 ? '(00) 0 0000-0000' : '(00) 0000-00009';
         },

@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use App\Rules\ValidateCID;
 class PatientRequest extends FormRequest
 {
     /**
@@ -27,6 +27,7 @@ class PatientRequest extends FormRequest
             'state' => 'required',
             'cep' => 'required|min:9',
             'neighborhood' => 'required|min:3',
+            'cid_id' => ['required', new validateCID(request())],
             'born_date' => 'required|date',
             'pathology' => 'required|min:5',
         ];

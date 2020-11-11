@@ -6,14 +6,14 @@
         @slot('create', route('patients.create'))
         @slot('header')
             <th>Nome</th>
-            <th>CID</th>
+            <th>Telefone</th>
             <th></th>
         @endslot
         @slot('body')
             @forelse($patients as $patient)
                 <tr>
                     <td>{{ $patient->name }}</td>
-                    <td>{{ $patient->icd }}</td>
+                    <td>{{ $patient->phone }}</td>
                     <td class="button-index">
                         <a href="{{ route('patients.show', $patient->id) }}" class="btn btn-secondary"><i class="fas fa-notes-medical"></i></a>
                         <a href="{{ route('patients.edit', $patient->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>

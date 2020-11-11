@@ -62,12 +62,12 @@
                   <li class="nav-item"><a class="nav-link" href="#arterial_frequency_tab" data-toggle="tab">Freq. Arterial</a></li>
                   <li class="nav-item"><a class="nav-link" href="#heart_rate_tab" data-toggle="tab">Freq. Cardiáca</a></li>
                   <li class="nav-item"><a class="nav-link" href="#sleep_tab" data-toggle="tab">Sono</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#step_tab" data-toggle="tab">Passos</a></li>
+                  <li class="nav-item"><a class="nav-link " href="#step_tab" data-toggle="tab">Passos</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content">
-                  <div class="tab-pane active " id="temperature_tab">
+                  <div class="tab-pane active" id="temperature_tab">
                       <form>
                         <select class="form-control select2" name="date" id="date" value="">
                           <option >21/10/2020</option>
@@ -117,7 +117,7 @@
                   </div>
                   <div class="tab-pane" id="sleep_tab">
                     <form>
-                      <select class="form-control select2" name="date" id="date" value="">
+                      <select class="form-control select2" name="month" id="month" value="">
                         <option >Janeiro</option>
                         <option >Fevereiro</option>
                         <option >Março</option>
@@ -135,7 +135,7 @@
                   </div>
                   <div class="tab-pane" id="step_tab">
                     <form>
-                      <select class="form-control select2" name="date" id="date" value="">
+                      <select class="form-control select2" name="month" id="month" value="">
                         <option >Janeiro</option>
                         <option >Fevereiro</option>
                         <option >Março</option>
@@ -166,14 +166,19 @@
 
 @push('scripts')
         <script>
+          var measurementLabel = {!! json_encode($patient->measurement_label) !!};
+          var diaryLabel = {!! json_encode($patient->diary_label) !!};
           $('.select2').select2();
+          $('select[value]').each(function () {
+              $(this).val($(this).attr('value'));
+          });
           var randomScalingFactor = function() {
               return Math.random() *10;
             };
           var configTemperature = {
             type: 'line',
             data: {
-              labels: ['1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM', '6:00PM', '7:00PM'],
+              labels: measurementLabel,
               datasets: [{
                 label: 'Temperatura',
                 fill: false,
@@ -209,7 +214,7 @@
           var configHeart = {
             type: 'line',
             data: {
-              labels: ['1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM', '6:00PM', '7:00PM'],
+              labels: measurementLabel,
               datasets: [{
                 label: 'Frequência Cardiaca',
                 fill: false,
@@ -245,7 +250,7 @@
           var configSleep = {
             type: 'bar',
             data: {
-              labels: ['1', '2', '3', '4', '5', '6', '7','8','9','10','11','12','13','14','15'],
+              labels: diaryLabel,
               datasets: [{
                 label: 'Sono',
                 fill: false,
@@ -290,7 +295,7 @@
           var configStep = {
             type: 'bar',
             data: {
-              labels: ['1', '2', '3', '4', '5', '6', '7','8','9','10','11','12','13','14','15'],
+              labels: diaryLabel,
               datasets: [{
                 label: 'Passos',
                 fill: false,
@@ -335,7 +340,7 @@
           var configArterial= {
             type: 'line',
             data: {
-              labels: ['1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM', '6:00PM', '7:00PM'],
+              labels: measurementLabel,
               datasets: [{
                 label: 'Alta',
                 fill: false,

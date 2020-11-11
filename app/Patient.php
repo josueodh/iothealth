@@ -18,7 +18,7 @@ class Patient extends Model
     }
 
     public function cids(){
-        return $this->belongsToMany('App\Cid','cids_patients','cid_id','patient_id');
+        return $this->belongsToMany('App\Cid','cids_patients','patient_id','cid_id');
     }
     
     public function getAdressAttribute(){
@@ -30,5 +30,20 @@ class Patient extends Model
         return $adress;
     }
 
-    
+    public function getDiaryLabelAttribute(){
+        $label = $this->diaries->pluck('date');
+        foreach($label as $key => $day){
+            $label[$key] = date('d', strtotime($day));
+        }
+        return $label;
+    }
+
+    public function getMeasurementLabelAttribute(){
+        $label = $this->measurements->pluck('time');
+        foreach($label as $key => $time){
+            $label[$key] = date('H:i', strtotime($time));
+        }
+        return $label;
+    }
+
 }

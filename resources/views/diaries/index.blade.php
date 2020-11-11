@@ -25,12 +25,11 @@
                             @method('delete')
                             <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                         </form>
-												
                     </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="4" class="text-center">Nenhuma medição encontrada</td>
+                    <td colspan="5" class="text-center">Nenhuma medição encontrada</td>
                 </tr>
             @endforelse
         @endslot
