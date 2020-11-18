@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Diary;
 use App\Patient;
 use Illuminate\Http\Request;
-
+use Excel;
+use App\Exports\DiaryTable;
 class DiaryController extends Controller
 {
     /**
@@ -89,5 +90,10 @@ class DiaryController extends Controller
     {
         $diary->delete();
         return redirect()->route('diaries.index')->with('success',true);
+    }
+
+
+    public function excel(Patient $patient){
+       return Excel::download(new DiaryTable($patient), $patient->name .'-diario.xlsx', 'Html');
     }
 }

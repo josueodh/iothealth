@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Measurement;
 use App\Patient;
 use Illuminate\Http\Request;
-
+use Excel;
+use App\Exports\MeasurementTable;
 class MeasurementController extends Controller
 {
     /**
@@ -91,4 +92,8 @@ class MeasurementController extends Controller
         $measurement->delete();
         return redirect()->route('measurements.index')->with('success',true);
     }
+
+    public function excel(Patient $patient){
+        return Excel::download(new MeasurementTable($patient), $patient->name .'-dados.xlsx', 'Html');
+     }
 }

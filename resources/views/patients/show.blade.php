@@ -4,17 +4,11 @@
 
         <div class="row">
           <div class="col-md-3">
-
-            <!-- Profile Image -->
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
-                  <!-- img -->
                 </div>
-
                 <h3 class="profile-username text-center">{{ $patient->name }}</h3>
-
-
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
                     <b>Telefone</b> <a class="float-right">{{ $patient->phone }}</a>
@@ -22,18 +16,19 @@
                   <li class="list-group-item">
                     <b>Data de Nascimento</b> <a class="float-right">{{ date('d/m/Y', strtotime($patient->age)) }}</a>
                   </li>
+                  <li class="list-group-item">
+                    <a class="btn btn-success btn-block" href="{{ route('diaries.excel', $patient->id) }}"><i class="far fa-file-excel"></i> Dados</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a class="btn btn-outline-success btn-block" href="{{ route('measurements.excel', $patient->id) }}"><i class="far fa-file-excel"></i> Sono/Passos</a>
+                  </li>
                 </ul>
               </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
-
-            <!-- About Me Box -->
             <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Informações</h3>
               </div>
-              <!-- /.card-header -->
               <div class="card-body">
                 <strong><i class="fas fa-book-medical mr-1"></i> Patologia</strong>
                 <p class="text-muted">
@@ -49,11 +44,8 @@
                 <p class="text-muted">{{ $patient->adress }}</p>
                 <hr>
               </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
           </div>
-          <!-- /.col -->
           <div class="col-md-9">
             <div class="card">
               <div class="card-header p-2">
@@ -64,7 +56,7 @@
                   <li class="nav-item"><a class="nav-link" href="#sleep_tab" data-toggle="tab">Sono</a></li>
                   <li class="nav-item"><a class="nav-link " href="#step_tab" data-toggle="tab">Passos</a></li>
                 </ul>
-              </div><!-- /.card-header -->
+              </div>
               <div class="card-body">
                 <div class="tab-content">
                   <div class="tab-pane active" id="temperature_tab">
@@ -153,15 +145,10 @@
                   </div>
                 </div>
               </div>
-                <!-- /.tab-content -->
-              </div><!-- /.card-body -->
+              </div>
             </div>
-            <!-- /.nav-tabs-custom -->
           </div>
-          <!-- /.col -->
         </div>
-        <!-- /.row -->
-     
 @endsection
 
 @push('scripts')
@@ -210,7 +197,7 @@
                 }]
               }
             }
-          }; 
+          };
           var configHeart = {
             type: 'line',
             data: {
@@ -246,7 +233,7 @@
                 }]
               }
             }
-          }; 
+          };
           var configSleep = {
             type: 'bar',
             data: {
@@ -291,7 +278,7 @@
                 }]
               }
             }
-          }; 
+          };
           var configStep = {
             type: 'bar',
             data: {
@@ -336,7 +323,7 @@
                 }]
               }
             }
-          }; 
+          };
           var configArterial= {
             type: 'line',
             data: {
@@ -403,6 +390,6 @@
             window.myLine = new Chart(step, configStep);
             window.myLine = new Chart(sleep, configSleep);
           };
-         
+
         </script>
 @endpush

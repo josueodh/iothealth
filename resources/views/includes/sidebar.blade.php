@@ -66,6 +66,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('users.index') }}" class="nav-link {{ Route::is('users.index') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Usuários
+              </p>
+            </a>
+          </li>
           
         </ul>
       </nav>
