@@ -11,13 +11,13 @@ $factory->define(Diary::class, function (Faker $faker) {
         'date' => '2020/12/' . $index,
         'walk' => $faker->numberBetween($min = 200, $max = 2500),
         'sleep' => $faker->numberBetween($min = 1, $max = 12) .':00',
-        'patient_id' => 7
+        'patient_id' => 1
         ]);
     }
     return [
         'date' => '2020/12/' . $index,
         'walk' => $faker->numberBetween($min = 200, $max = 2500),
         'sleep' => $faker->numberBetween($min = 1, $max = 12) .':00',
-        'patient_id' => 7
+        'patient_id' => 1
     ] ;
 });
