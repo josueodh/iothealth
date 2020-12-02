@@ -9,6 +9,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     for($index = 1 ; $index < 7; $index++){
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -18,6 +19,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -27,6 +29,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -36,6 +39,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -45,6 +49,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -54,6 +59,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -63,6 +69,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -72,6 +79,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -81,6 +89,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -90,6 +99,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -99,6 +109,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -108,6 +119,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -117,6 +129,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -126,6 +139,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -135,6 +149,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -144,6 +159,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -153,6 +169,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -162,6 +179,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -171,6 +189,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -180,6 +199,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -189,6 +209,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -198,6 +219,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -207,6 +229,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -216,6 +239,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
         ]);
         Measurement::create([
             'temperature' => $faker->numberBetween($min = 35, $max = 42),
+            'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
             'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
             'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
             'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -227,6 +251,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     }
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -235,6 +260,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -243,6 +269,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -251,6 +278,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -259,6 +287,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -267,6 +296,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -275,6 +305,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -283,6 +314,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -291,6 +323,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -299,6 +332,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -307,6 +341,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -315,6 +350,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -323,6 +359,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -331,6 +368,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -339,6 +377,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -347,6 +386,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -355,6 +395,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -363,6 +404,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -371,6 +413,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -379,6 +422,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -387,6 +431,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -395,6 +440,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -403,6 +449,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
     ]);
     Measurement::create([
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),
@@ -412,6 +459,7 @@ $factory->define(Measurement::class, function (Faker $faker) {
 
     return [
         'temperature' => $faker->numberBetween($min = 35, $max = 42),
+        'blood_saturation' => $faker->numberBetween($min = 80, $max = 100),
         'heart_rate' => $faker->numberBetween($min = 50, $max = 120),
         'arterial_frequency_max' => $faker->numberBetween($min = 80, $max = 220),
         'arterial_frequency_min' => $faker->numberBetween($min = 10, $max = 150),

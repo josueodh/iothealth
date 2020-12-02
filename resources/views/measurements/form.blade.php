@@ -19,6 +19,16 @@
             </div>
         </div>
     </div>
+    <div class="col-12 form-group">
+        <label for="blood_saturation">Saturação do Sangue</label>
+        <div class="input-group mb-3">
+            <input type="number" id="blood_saturation" name="blood_saturation" required
+                class="form-control" step="1"  value="{{ old('blood_saturation', $measurement->blood_saturation) }}">
+            <div class="input-group-append">
+              <span class="input-group-text">%</span>
+            </div>
+        </div>
+    </div>
     <div class="col-sm-12 col-md-6 form-group">
         <label for="arterial_frequency_max">Frequência Arterial Sistólica</label>
         <div class="input-group mb-3">

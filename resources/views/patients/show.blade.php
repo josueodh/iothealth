@@ -17,10 +17,7 @@
                     <b>Data de Nascimento</b> <a class="float-right">{{ date('d/m/Y', strtotime($patient->age)) }}</a>
                   </li>
                   <li class="list-group-item">
-                    <a class="btn btn-success btn-block" href="{{ route('diaries.excel', $patient->id) }}"><i class="far fa-file-excel"></i> Dados</a>
-                  </li>
-                  <li class="list-group-item">
-                    <a class="btn btn-outline-success btn-block" href="{{ route('measurements.excel', $patient->id) }}"><i class="far fa-file-excel"></i> Sono/Passos</a>
+                    <a class="btn btn-success btn-block" href="{{ route('diaries.excel', $patient->id) }}"><i class="far fa-file-excel"></i> Dados Paciente</a>
                   </li>
                 </ul>
               </div>
@@ -53,6 +50,7 @@
                   <li class="nav-item"><a class="nav-link active" href="#temperature_tab" data-toggle="tab">Temperatura</a></li>
                   <li class="nav-item"><a class="nav-link" href="#arterial_frequency_tab" data-toggle="tab">Freq. Arterial</a></li>
                   <li class="nav-item"><a class="nav-link" href="#heart_rate_tab" data-toggle="tab">Freq. Cardiáca</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#blood_saturation_tab" data-toggle="tab">Saturação do Sangue</a></li>
                   <li class="nav-item"><a class="nav-link" href="#sleep_tab" data-toggle="tab">Sono</a></li>
                   <li class="nav-item"><a class="nav-link " href="#step_tab" data-toggle="tab">Passos</a></li>
                 </ul>
@@ -79,6 +77,17 @@
                         </select>
                   </form>
                     <canvas id="heart_rate">
+                    </canvas>
+                  </div>
+                  <div class="tab-pane" id="blood_saturation_tab">
+                    <form>
+                        <select class="form-control select2" name="date" id="date2" onchange="form.submit()" value="{{ old('date', request('date')) }}">
+                            @foreach($patient->days_patient_measurement as $date)
+                                <option value="{{ $date }}">{{ date('d/m/Y', strtotime($date)) }}</option>
+                             @endforeach
+                        </select>
+                  </form>
+                    <canvas id="blood_saturation">
                     </canvas>
                   </div>
                   <div class="tab-pane" id="arterial_frequency_tab">
@@ -117,6 +126,8 @@
           var walkData = {!! json_encode(($walk)) !!};
           var arterialFrequencyMinData = {!! json_encode(($arterial_frequency_min)) !!};
           var arterialFrequencyMaxData = {!! json_encode(($arterial_frequency_max)) !!};
+          var bloodSaturationData = {!! json_encode($blood_saturation) !!};
+          console.log(walkData, bloodSaturationData);
           $(document).ready(function() {
             $(function() {
                 $('.select2').select2();
@@ -167,6 +178,37 @@
                 borderColor:'rgba(255,0,0,0.7)',
                 borderWidth: 1,
                 data: heartRateData,
+              },]
+            },
+            options: {
+              responsive: true,
+              title: {
+                display: true,
+              },
+              scales: {
+                xAxes: [{
+                  display: true,
+                }],
+                yAxes: [{
+                    display: true,
+                    ticks: {
+                         beginAtZero: true
+                    }
+                }]
+              }
+            }
+          };
+          var configBloodSaturation = {
+            type: 'line',
+            data: {
+              labels: measurementLabel,
+              datasets: [{
+                label: 'Saturação do sangue',
+                fill: false,
+                backgroundColor:'rgba(255,0,0,0.7)',
+                borderColor:'rgba(255,0,0,0.7)',
+                borderWidth: 1,
+                data: bloodSaturationData,
               },]
             },
             options: {
@@ -292,11 +334,13 @@
             var heart = document.getElementById('heart_rate').getContext('2d');
             var sleep = document.getElementById('sleep').getContext('2d');
             var step = document.getElementById('step').getContext('2d');
+            var blood_saturation = document.getElementById('blood_saturation').getContext('2d');
             window.myLine = new Chart(temperature, configTemperature);
             window.myLine = new Chart(arterial, configArterial);
             window.myLine = new Chart(heart, configHeart);
             window.myLine = new Chart(step, configStep);
             window.myLine = new Chart(sleep, configSleep);
+            window.myLine = new Chart(blood_saturation, configBloodSaturation);
           };
 
         </script>

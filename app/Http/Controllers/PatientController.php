@@ -67,6 +67,7 @@ class PatientController extends Controller
         $heart_rate_chart = Patient::HeartRate($day, $patient);
         $arterial_frequency_min = Patient::ArterialFrequencyMin($day, $patient);
         $arterial_frequency_max = Patient::ArterialFrequencyMax($day, $patient);
+        $blood_saturation = Patient::BloodSaturation($day,$patient);
         $sleep = Patient::Sleep($day, $patient);
         $walk = Patient::Walk($patient);
         return view('patients.show',get_defined_vars());

@@ -53,6 +53,10 @@ class Patient extends Model
         return $temperatures;
     }
 
+    public static function bloodSaturation($day, $patient){
+        $blood_saturation = Measurement::where('patient_id',$patient->id)->whereDate('time',$day)->pluck('blood_saturation');
+        return $blood_saturation;
+    }
     public static function arterialFrequencyMin($day,$patient){
         $arterial_frequency = Measurement::where('patient_id',$patient->id)->whereDate('time',$day)->pluck('arterial_frequency_min');
         return $arterial_frequency;
@@ -77,12 +81,11 @@ class Patient extends Model
         return $array;
     }
 
-
-
     public static function walk($patient){
         $walk = Diary::where('patient_id', $patient->id)->pluck('walk');
         return $walk;
     }
+
     public function getDaysPatientMeasurementAttribute(){
         $date = [];
         foreach($this->measurements as $measurement){

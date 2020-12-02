@@ -78,7 +78,7 @@
             <a href="{{ route('patients.excel') }}" class="nav-link {{ Route::is('patients.excel') ? 'active' : '' }}">
                 <i class="nav-icon far fa-file-excel"></i>
                 <p>
-                    Excel
+                    Dados Gerais Pacientes
                 </p>
             </a>
           </li>
