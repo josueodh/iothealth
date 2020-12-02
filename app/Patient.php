@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use App\Diary;
+use App\Meansurement;
 class Patient extends Model
 {
     protected $guarded = ['id', 'created_at', 'updated_at'];
@@ -34,9 +35,9 @@ class Patient extends Model
     public function getDiaryLabelAttribute(){
         $label = $this->diaries->pluck('date');
         foreach($label as $key => $day){
-            $label[$key] = date('d', strtotime($day));
+            $label[$key] = date('d/m', strtotime($day));
         }
-        return $label;
+        return $label->unique();
     }
 
     public function getMeasurementLabelAttribute(){
@@ -44,9 +45,44 @@ class Patient extends Model
         foreach($label as $key => $time){
             $label[$key] = date('H:i', strtotime($time));
         }
-        return $label;
+        return $label->unique();
     }
 
+    public static function temperatureChart($day,$patient){
+        $temperatures = Measurement::where('patient_id',$patient->id)->whereDate('time',$day)->pluck('temperature');
+        return $temperatures;
+    }
+
+    public static function arterialFrequencyMin($day,$patient){
+        $arterial_frequency = Measurement::where('patient_id',$patient->id)->whereDate('time',$day)->pluck('arterial_frequency_min');
+        return $arterial_frequency;
+    }
+
+    public static function arterialFrequencyMax($day,$patient){
+        $arterial_frequency = Measurement::where('patient_id',$patient->id)->whereDate('time',$day)->pluck('arterial_frequency_max');
+        return $arterial_frequency;
+    }
+
+    public static function heartRate($day, $patient){
+        $heart_rate = Measurement::where('patient_id',$patient->id)->whereDate('time',$day)->pluck('heart_rate');
+        return $heart_rate;
+    }
+
+    public static function sleep($day, $patient){
+        $sleep = Diary::where('patient_id',$patient->id)->pluck('sleep');
+        $array = [];
+        foreach($sleep as $sleepSeconds){
+            array_push($array, date('h.i',strtotime($sleepSeconds)));
+        }
+        return $array;
+    }
+
+
+
+    public static function walk($patient){
+        $walk = Diary::where('patient_id', $patient->id)->pluck('walk');
+        return $walk;
+    }
     public function getDaysPatientMeasurementAttribute(){
         $date = [];
         foreach($this->measurements as $measurement){
@@ -70,7 +106,9 @@ class Patient extends Model
         return $date->unique();
     }
 
-
+    public function getFirstDateAttribute(){
+        dd($this->measurement_label);
+    }
     public function getWalkDayFirstAttribute(){
         $date = $this->days_patient->first();
         $diary = Diary::where('patient_id', $this->id)->whereDate('date', $date)->first();

@@ -2,7 +2,7 @@
     <div class="col-12 form-group">
         <label for="temperature">Temperatura</label>
         <div class="input-group mb-3">
-            <input type="number" id="temperature" name="temperature" required 
+            <input type="number" id="temperature" name="temperature" required
                 class="form-control" step="0.1" min="30" max="44" value="{{ old('temperature', $measurement->temperature) }}">
             <div class="input-group-append">
               <span class="input-group-text">°C</span>
@@ -12,20 +12,30 @@
     <div class="col-12 form-group">
         <label for="heart_rate">Frequência Cardiaca</label>
         <div class="input-group mb-3">
-            <input type="number" id="heart_rate" name="heart_rate" required 
+            <input type="number" id="heart_rate" name="heart_rate" required
                 class="form-control" step="1"  value="{{ old('heart_rate', $measurement->heart_rate) }}">
             <div class="input-group-append">
               <span class="input-group-text">bpm</span>
             </div>
         </div>
     </div>
-    <div class="col-12 form-group">
-        <label for="arterial_frequency">Frequência Arterial</label>
+    <div class="col-sm-12 col-md-6 form-group">
+        <label for="arterial_frequency_max">Frequência Arterial Sistólica</label>
         <div class="input-group mb-3">
-            <input type="text" id="arterial_frequency" name="arterial_frequency" required 
-                class="form-control" value="{{ old('arterial_frequency', $measurement->arterial_frequency) }}">
+            <input type="text" id="arterial_frequency_max" name="arterial_frequency_max" required
+                class="form-control" value="{{ old('arterial_frequency_max', $measurement->arterial_frequency_max) }}">
             <div class="input-group-append">
-              <span class="input-group-text">mmhg</span>
+              <span class="input-group-text">mmHg</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 form-group">
+        <label for="arterial_frequency_min">Frequência Arterial Diastólica</label>
+        <div class="input-group mb-3">
+            <input type="text" id="arterial_frequency_min" name="arterial_frequency_min" required
+                class="form-control" value="{{ old('arterial_frequency_min', $measurement->arterial_frequency_min) }}">
+            <div class="input-group-append">
+              <span class="input-group-text">mmHg</span>
             </div>
         </div>
     </div>
@@ -53,12 +63,13 @@
 </div>
 @push('scripts')
     <script>
-        $('.select2').select2({
-            placeholder:'Selecione um Paciente',
-            allowClear: true,
-        });
-        $('select[value]').each(function () {
-            $(this).val($(this).attr('value'));
+        $(document).ready(function() {
+            $(function() {
+                $('.select2').select2();
+            });
+            $('select[value]').each(function () {
+                $(this).val($(this).attr('value'));
+            });
         });
     </script>
 @endpush

@@ -56,9 +56,20 @@ class PatientController extends Controller
      * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function show(Patient $patient)
+    public function show(Patient $patient, Request $request)
     {
-        return view('patients.show',compact('patient'));
+        if(request('date')){
+            $day = request('date');
+        }else{
+            $day = $patient->days_patient_measurement->first();
+        }
+        $temperature_chart = Patient::TemperatureChart($day, $patient);
+        $heart_rate_chart = Patient::HeartRate($day, $patient);
+        $arterial_frequency_min = Patient::ArterialFrequencyMin($day, $patient);
+        $arterial_frequency_max = Patient::ArterialFrequencyMax($day, $patient);
+        $sleep = Patient::Sleep($day, $patient);
+        $walk = Patient::Walk($patient);
+        return view('patients.show',get_defined_vars());
     }
 
     /**

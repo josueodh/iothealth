@@ -17,7 +17,8 @@ class CreateMeasurementsTable extends Migration
             $table->id();
             $table->float('temperature');
             $table->integer('heart_rate');
-            $table->string('arterial_frequency');
+            $table->integer('arterial_frequency_min');
+            $table->integer('arterial_frequency_max');
             $table->dateTime('time', 0);
             $table->unsignedBigInteger('patient_id');
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');

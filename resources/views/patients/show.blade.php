@@ -61,15 +61,10 @@
                 <div class="tab-content">
                   <div class="tab-pane active" id="temperature_tab">
                       <form>
-                        <select class="form-control select2" name="date" id="date" value="">
-                          <option >21/10/2020</option>
-                          <option >22/10/2020</option>
-                          <option >23/10/2020</option>
-                          <option >24/10/2020</option>
-                          <option >25/10/2020</option>
-                          <option >26/10/2020</option>
-                          <option >27/10/2020</option>
-                          <option >28/10/2020</option>
+                        <select class="form-control select2" name="date" id="date1" onchange="form.submit()" value="{{ old('date', request('date')) }}">
+                            @foreach($patient->days_patient_measurement as $date)
+                                <option value="{{ $date }}">{{ date('d/m/Y', strtotime($date)) }}</option>
+                             @endforeach
                         </select>
                     </form>
                     <canvas id="temperature">
@@ -77,69 +72,31 @@
                   </div>
                   <div class="tab-pane" id="heart_rate_tab">
                     <form>
-                      <select class="form-control select2" name="date" id="date" value="">
-                        <option >21/10/2020</option>
-                        <option >22/10/2020</option>
-                        <option >23/10/2020</option>
-                        <option >24/10/2020</option>
-                        <option >25/10/2020</option>
-                        <option >26/10/2020</option>
-                        <option >27/10/2020</option>
-                        <option >28/10/2020</option>
-                      </select>
+                        <select class="form-control select2" name="date" id="date2" onchange="form.submit()" value="{{ old('date', request('date')) }}">
+                            @foreach($patient->days_patient_measurement as $date)
+                                <option value="{{ $date }}">{{ date('d/m/Y', strtotime($date)) }}</option>
+                             @endforeach
+                        </select>
                   </form>
                     <canvas id="heart_rate">
                     </canvas>
                   </div>
                   <div class="tab-pane" id="arterial_frequency_tab">
                       <form>
-                        <select class="form-control select2" name="date" id="date" value="">
-                          <option >21/10/2020</option>
-                          <option >22/10/2020</option>
-                          <option >23/10/2020</option>
-                          <option >24/10/2020</option>
-                          <option >25/10/2020</option>
-                          <option >26/10/2020</option>
-                          <option >27/10/2020</option>
-                          <option >28/10/2020</option>
+                        <select class="form-control select2" name="date" id="date3" onchange="form.submit()" value="{{ old('date', request('date')) }}">
+                            @foreach($patient->days_patient_measurement as $date)
+                                <option value="{{ $date }}">{{ date('d/m/Y', strtotime($date)) }}</option>
+                             @endforeach
                         </select>
                     </form>
                     <canvas id="arterial_frequency">
                     </canvas>
                   </div>
                   <div class="tab-pane" id="sleep_tab">
-                    <form>
-                      <select class="form-control select2" name="month" id="month" value="">
-                        <option >Janeiro</option>
-                        <option >Fevereiro</option>
-                        <option >Março</option>
-                        <option >Abril</option>
-                        <option >Maio</option>
-                        <option >Junho</option>
-                        <option >Julho</option>
-                        <option >Agosto</option>
-                        <option >Setembro</option>
-                        <option >Outubro</option>
-                      </select>
-                  </form>
                     <canvas id="sleep">
                     </canvas>
                   </div>
                   <div class="tab-pane" id="step_tab">
-                    <form>
-                      <select class="form-control select2" name="month" id="month" value="">
-                        <option >Janeiro</option>
-                        <option >Fevereiro</option>
-                        <option >Março</option>
-                        <option >Abril</option>
-                        <option >Maio</option>
-                        <option >Junho</option>
-                        <option >Julho</option>
-                        <option >Agosto</option>
-                        <option >Setembro</option>
-                        <option >Outubro</option>
-                      </select>
-                  </form>
                     <canvas id="step">
                     </canvas>
                   </div>
@@ -150,15 +107,24 @@
           </div>
         </div>
 @endsection
-
 @push('scripts')
         <script>
           var measurementLabel = {!! json_encode($patient->measurement_label) !!};
           var diaryLabel = {!! json_encode($patient->diary_label) !!};
-          $('.select2').select2();
-          $('select[value]').each(function () {
-              $(this).val($(this).attr('value'));
-          });
+          var temperatureData = {!! json_encode($temperature_chart) !!};
+          var heartRateData = {!! json_encode($heart_rate_chart) !!};
+          var sleepData = {!! json_encode(($sleep)) !!};
+          var walkData = {!! json_encode(($walk)) !!};
+          var arterialFrequencyMinData = {!! json_encode(($arterial_frequency_min)) !!};
+          var arterialFrequencyMaxData = {!! json_encode(($arterial_frequency_max)) !!};
+          $(document).ready(function() {
+            $(function() {
+                $('.select2').select2();
+            });
+            $('select[value]').each(function () {
+                $(this).val($(this).attr('value'));
+            });
+        });
           var randomScalingFactor = function() {
               return Math.random() *10;
             };
@@ -172,15 +138,7 @@
                 backgroundColor:'rgba(80,220,100,0.7)',
                 borderColor:'rgba(80,220,100,0.7)',
                 borderWidth: 1,
-                data: [
-                  randomScalingFactor() + 30,
-                  randomScalingFactor() + 30,
-                  randomScalingFactor() + 30,
-                  randomScalingFactor() + 30,
-                  randomScalingFactor() + 30,
-                  randomScalingFactor() + 30,
-                  randomScalingFactor() + 30
-                ],
+                data: temperatureData,
               },]
             },
             options: {
@@ -208,15 +166,7 @@
                 backgroundColor:'rgba(255,0,0,0.7)',
                 borderColor:'rgba(255,0,0,0.7)',
                 borderWidth: 1,
-                data: [
-                  randomScalingFactor() + 60,
-                  randomScalingFactor() + 60,
-                  randomScalingFactor() + 60,
-                  randomScalingFactor() + 60,
-                  randomScalingFactor() + 60,
-                  randomScalingFactor() + 60,
-                  randomScalingFactor() + 60
-                ],
+                data: heartRateData,
               },]
             },
             options: {
@@ -229,7 +179,10 @@
                   display: true,
                 }],
                 yAxes: [{
-                  display: true,
+                    display: true,
+                    ticks: {
+                         beginAtZero: true
+                    }
                 }]
               }
             }
@@ -244,24 +197,7 @@
                 backgroundColor:'rgba(80,220,100,0.7)',
                 borderColor:'rgba(80,220,100,0.7)',
                 borderWidth: 1,
-                data: [
-                  randomScalingFactor(),
-                  randomScalingFactor(),
-                  randomScalingFactor(),
-                  randomScalingFactor(),
-                  randomScalingFactor(),
-                  randomScalingFactor(),
-                  randomScalingFactor(),
-                  randomScalingFactor(),
-                  randomScalingFactor(),
-                  randomScalingFactor(),
-                  randomScalingFactor(),
-                  randomScalingFactor(),
-                  randomScalingFactor(),
-                  randomScalingFactor(),
-                  randomScalingFactor(),
-                  randomScalingFactor()
-                ],
+                data: sleepData,
               },]
             },
             options: {
@@ -274,13 +210,17 @@
                   display: true,
                 }],
                 yAxes: [{
-                  display: true,
+                    display: true,
+                    ticks: {
+                         beginAtZero: true
+                    }
                 }]
               }
             }
           };
           var configStep = {
             type: 'bar',
+
             data: {
               labels: diaryLabel,
               datasets: [{
@@ -289,24 +229,7 @@
                 backgroundColor:'rgba(80,220,100,0.7)',
                 borderColor:'rgba(80,220,100,0.7)',
                 borderWidth: 1,
-                data: [
-                  randomScalingFactor()*250,
-                  randomScalingFactor()*250,
-                  randomScalingFactor()*250,
-                  randomScalingFactor()*250,
-                  randomScalingFactor()*250,
-                  randomScalingFactor()*250,
-                  randomScalingFactor()*250,
-                  randomScalingFactor()*250,
-                  randomScalingFactor()*250,
-                  randomScalingFactor()*250,
-                  randomScalingFactor()*250,
-                  randomScalingFactor()*250,
-                  randomScalingFactor()*250,
-                  randomScalingFactor()*250,
-                  randomScalingFactor()*250,
-                  randomScalingFactor()*250
-                ],
+                data: walkData,
               },]
             },
             options: {
@@ -320,6 +243,7 @@
                 }],
                 yAxes: [{
                   display: true,
+                  beginAtZero:true,
                 }]
               }
             }
@@ -334,15 +258,7 @@
                 backgroundColor:'rgba(80,220,100,0.7)',
                 borderColor:'rgba(80,220,100,0.7)',
                 borderWidth: 1,
-                data: [
-                  randomScalingFactor() + 109,
-                  randomScalingFactor() + 109,
-                  randomScalingFactor() + 109,
-                  randomScalingFactor() + 109,
-                  randomScalingFactor() + 109,
-                  randomScalingFactor() + 109,
-                  randomScalingFactor() + 109
-                ],
+                data: arterialFrequencyMaxData,
               },
               {
                 label: 'Baixa',
@@ -350,15 +266,7 @@
                 backgroundColor:'rgba(144,202,249,0.7)',
                 borderColor:'rgba(144,202,249,0.7)',
                 borderWidth: 1,
-                data: [
-                  randomScalingFactor() + 70,
-                  randomScalingFactor() + 70,
-                  randomScalingFactor() + 70,
-                  randomScalingFactor() + 70,
-                  randomScalingFactor() + 70,
-                  randomScalingFactor() + 70,
-                  randomScalingFactor() + 70
-                ],
+                data: arterialFrequencyMinData,
               },
             ]
             },

@@ -12,7 +12,7 @@
         @slot('body')
             @forelse($measurements as $measurement)
                 <tr>
-                    <td>{{ date('H:m - d/m/Y',strtotime($measurement->time)) }}</td>
+                    <td>{{ date('H:i - d/m/Y',strtotime($measurement->time)) }}</td>
                     <td>{{ $measurement->patient->name }}</td>
                     <td class="button-index">
                         <a href="{{ route('measurements.show', $measurement->id) }}" class="btn btn-secondary"><i class="fas fa-notes-medical"></i></a>
@@ -22,7 +22,7 @@
                             @method('delete')
                             <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                         </form>
-												
+
                     </td>
                 </tr>
             @empty
@@ -34,5 +34,5 @@
     @endcomponent
 @endsection
 @push('scripts')
-    <script src="{{ asset('js/components/dataTable.js') }}"></script>            
+    <script src="{{ asset('js/components/dataTable.js') }}"></script>
 @endpush
