@@ -16,7 +16,7 @@
                 <tr>
                     <td>{{ $diary->patient->name }}</td>
                     <td>{{ date('d/m/Y',strtotime($diary->date)) }}</td>
-                    <td>{{ date('H:m',strtotime($diary->sleep)) }}</td>
+                    <td>{{ date('H:i',strtotime($diary->sleep)) }}</td>
                     <td>{{ $diary->walk }}</td>
                     <td class="button-index">
                         <a href="{{ route('diaries.edit', $diary->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
@@ -36,5 +36,5 @@
     @endcomponent
 @endsection
 @push('scripts')
-    <script src="{{ asset('js/components/dataTable.js') }}"></script>            
+    <script src="{{ asset('js/components/dataTable.js') }}"></script>
 @endpush

@@ -26,4 +26,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('/users', 'UserController');
     Route::get('/excel/diario/{patient}', 'DiaryController@excel')->name('diaries.excel');
     Route::get('/excel/dados/{patient}', 'MeasurementController@excel')->name('measurements.excel');
+    Route::get('/excel/pacientes', 'PatientController@excel')->name('patients.excel');
 });

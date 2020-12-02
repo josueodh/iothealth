@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="csrf-token" content="owbQqE2tkYIeq4ZnWVlf5ypMLWueERZ3reqHVs2l">
+    <title>IoT Health</title>
+    <link rel="stylesheet" href="http://127.0.0.1:8000/css/app.css">
+    </head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link"  data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+                </li>
+            </ul>
+
+        </nav>
+        <!-- /.navbar -->
+
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <span>
+      <a href="/" id="link-logo" class="brand-link icone-img link-logo">
+        <span class="fa-stack">
+          <img src="http://127.0.0.1:8000/img/logo.png" class="img-fluid ml-1" >
+          <span class="brand-text font-weight-light">Iot Health</span>
+        </span>
+      </a>
+    </span>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <a href="#">
+            <img src="https://adminlte.io/themes/v3/dist/img/user2-160x160.jpg"
+              class="img-circle elevation-2 perfil-sidebar">
+          </a>
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">admin</a>
+        </div>
+        <div class="info align-self-center">
+          <a href="http://127.0.0.1:8000/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+              <i class="nav-icon fas fa-power-off"></i>
+          </a>
+          <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST" style="display: none;">
+              <input type="hidden" name="_token" value="owbQqE2tkYIeq4ZnWVlf5ypMLWueERZ3reqHVs2l">
+          </form>
+      </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item">
+            <a href="/" class="nav-link ">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="http://127.0.0.1:8000/patients" class="nav-link ">
+              <i class="nav-icon fas fa-head-side-cough"></i>
+              <p>
+                Pacientes
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="http://127.0.0.1:8000/measurements" class="nav-link ">
+              <i class="nav-icon fas fa-chart-line"></i>
+              <p>
+                Dados
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="http://127.0.0.1:8000/diaries" class="nav-link ">
+              <i class="nav-icon fas fa-shoe-prints"></i>
+              <p>
+                Sono / Passos
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="http://127.0.0.1:8000/users" class="nav-link ">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Usuários
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="http://127.0.0.1:8000/excel/pacientes" class="nav-link active">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Excel
+              </p>
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+                <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>
+                                                            </h1>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+            <!-- Main content -->
+            <div class="content">
+                <div id="app" class="container-fluid">
+                    <table class="table">
+    <thead>
+        <tr>
+            <th>Paciente</th>
+            <th>Passos dia 1</th>
+            <th>Sono dia 1</th>
+            <th>Temperatura dia 1</th>
+            <th>FC dia 1</th>
+            <th>FA dia 1</th>
+            <th>Passos dia 2</th>
+            <th>Sono dia 2</th>
+            <th>Temperatura dia 2</th>
+            <th>FC dia 2</th>
+            <th>FA dia 2</th>
+            <th>Passos dia 3</th>
+            <th>Sono dia 3</th>
+            <th>Temperatura dia 3</th>
+            <th>FC dia 3</th>
+            <th>FA dia 3</th>
+            <th>Passos dia 4</th>
+            <th>Sono dia 4</th>
+            <th>Temperatura dia 4</th>
+            <th>FC dia 4</th>
+            <th>FA dia 4</th>
+            <th>Passos dia 5</th>
+            <th>Sono dia 5</th>
+            <th>Temperatura dia 5</th>
+            <th>FC dia 5</th>
+            <th>FA dia 5</th>
+            <th>Passos dia 6</th>
+            <th>Sono dia 6</th>
+            <th>Temperatura dia 6</th>
+            <th>FC dia 6</th>
+            <th>FA dia 6</th>
+            <th>Passos dia 7</th>
+            <th>Sono dia 7</th>
+            <th>Temperatura dia 7</th>
+            <th>FC dia 7</th>
+            <th>FA dia 7</th>
+            <th>Passos semana</th>
+            <th>Sono semana</th>
+            <th>Temperatura semana</th>
+            <th>FC semana</th>
+            <th>FA semana</th>
+
+        </tr>
+    </thead>
+    <tbody>
+                    <tr>
+                <td>Dr. Martinho Casanova Santacruz Neto</td>
+                <td>976</td>
+                <td>02:00:00</td>
+                <td>38</td>
+                <td>86.7</td>
+                <td></td>
+                <td>1346</td>
+                <td>12:00:00</td>
+                <td>38.3</td>
+                <td>85.4</td>
+                <td></td>
+                <td>2176</td>
+                <td>09:00:00</td>
+                <td>38.5</td>
+                <td>91.9</td>
+                <td></td>
+                <td>341</td>
+                <td>02:00:00</td>
+                <td>39.2</td>
+                <td>82.9</td>
+                <td></td>
+                <td>1480</td>
+                <td>08:00:00</td>
+                <td>39.7</td>
+                <td>89.2</td>
+                <td></td>
+                <td>782</td>
+                <td>07:00:00</td>
+                <td>39.7</td>
+                <td>84.3</td>
+                <td></td>
+                <td>282</td>
+                <td>06:00:00</td>
+                <td>38.5</td>
+                <td>87.6</td>
+                <td></td>
+                <td>1054.7</td>
+                <td>38.8</td>
+                <td>06:34</td>
+                <td>38.8</td>
+                <td>86.9</td>
+            </tr>
+            </tbody>
+</table>
+                </div>
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <!-- To the right -->
+            <div class="float-right d-none d-sm-inline">
+            </div>
+            <!-- Default to the left -->
+            <b>Copyright &copy; 2020 <span style="color:#5a5eae">IoT Health UFJF</span>. Todos direitos
+            reservados.</b>
+        </footer>
+    </div>
+    
+    <!-- ./wrapper -->
+    <script src="http://127.0.0.1:8000/js/app.js"></script>
+    
+       
+</body>
+
+</html>

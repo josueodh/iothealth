@@ -6,6 +6,8 @@ use App\Patient;
 use App\Cid;
 use Illuminate\Http\Request;
 use App\Http\Requests\PatientRequest;
+use Excel;
+use App\Exports\PatientTable;
 class PatientController extends Controller
 {
     /**
@@ -99,5 +101,10 @@ class PatientController extends Controller
     {
         $patient->delete();
         return redirect()->route('patients.index')->with('success',true);
+    }
+
+
+    public function excel(){
+        return Excel::download(new PatientTable, 'resumo.xlsx', 'Html');
     }
 }

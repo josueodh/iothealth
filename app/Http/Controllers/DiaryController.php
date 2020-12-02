@@ -40,6 +40,7 @@ class DiaryController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         Diary::create($request->all());
         return redirect()->route('diaries.index')->with('success',true);
     }

@@ -26,11 +26,11 @@
               <i class="nav-icon fas fa-power-off"></i>
           </a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-              {{ csrf_field() }} 
+              {{ csrf_field() }}
           </form>
       </div>
       </div>
-  
+
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -74,7 +74,15 @@
               </p>
             </a>
           </li>
-          
+          <li class="nav-item">
+            <a href="{{ route('patients.excel') }}" class="nav-link {{ Route::is('patients.excel') ? 'active' : '' }}">
+                <i class="nav-icon far fa-file-excel"></i>
+                <p>
+                    Excel
+                </p>
+            </a>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
