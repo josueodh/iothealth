@@ -75,7 +75,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('patients.excel') }}" class="nav-link {{ Route::is('patients.excel') ? 'active' : '' }}">
+            <a href="{{ route('patients.excelAll') }}" class="nav-link {{ Route::is('patients.excelAll') ? 'active' : '' }}">
                 <i class="nav-icon far fa-file-excel"></i>
                 <p>
                     Dados Gerais Pacientes

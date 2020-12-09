@@ -17,7 +17,7 @@
                     <b>Data de Nascimento</b> <a class="float-right">{{ date('d/m/Y', strtotime($patient->age)) }}</a>
                   </li>
                   <li class="list-group-item">
-                    <a class="btn btn-success btn-block" href="{{ route('diaries.excel', $patient->id) }}"><i class="far fa-file-excel"></i> Dados Paciente</a>
+                    <a class="btn btn-success btn-block" href="{{ route('patients.excel', $patient->id) }}"><i class="far fa-file-excel"></i> Dados Paciente</a>
                   </li>
                 </ul>
               </div>

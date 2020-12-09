@@ -140,6 +140,30 @@ class Patient extends Model
         }
     }
 
+    public function getBloodSaturationDayFirstAttribute(){
+        $date = $this->days_patient_measurement->first();
+        $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date)->get();
+        if($measurements->count() > 0){
+            return round($measurements->sum('blood_saturation')/$measurements->count(),1);
+        }
+    }
+
+    public function getArterialFrequencyMinDayFirstAttribute(){
+        $date = $this->days_patient_measurement->first();
+        $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date)->get();
+        if($measurements->count() > 0){
+            return round($measurements->sum('arterial_frequency_min')/$measurements->count(),1);
+        }
+    }
+
+    public function getArterialFrequencyMaxDayFirstAttribute(){
+        $date = $this->days_patient_measurement->first();
+        $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date)->get();
+        if($measurements->count() > 0){
+            return round($measurements->sum('arterial_frequency_max')/$measurements->count(),1);
+        }
+    }
+
     public function getWalkDaySecondAttribute(){
         $date = $this->days_patient;
         if($date->count() > 1){
@@ -172,6 +196,36 @@ class Patient extends Model
             $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[1])->get();
             if($measurements->count() > 0){
                 return round($measurements->sum('heart_rate')/$measurements->count(),1);
+            }
+        }
+    }
+
+    public function getBloodSaturationDaySecondAttribute(){
+        $date = $this->days_patient_measurement;
+        if($date->count() > 1){
+            $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[1])->get();
+            if($measurements->count() > 0){
+                return round($measurements->sum('blood_saturation')/$measurements->count(),1);
+            }
+        }
+    }
+
+    public function getArterialFrequencyMinDaySecondAttribute(){
+        $date = $this->days_patient_measurement;
+        if($date->count() > 1){
+            $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[1])->get();
+            if($measurements->count() > 0){
+                return round($measurements->sum('arterial_frequency_min')/$measurements->count(),1);
+            }
+        }
+    }
+
+    public function getArterialFrequencyMaxDaySecondAttribute(){
+        $date = $this->days_patient_measurement;
+        if($date->count() > 1){
+            $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[1])->get();
+            if($measurements->count() > 0){
+                return round($measurements->sum('arterial_frequency_max')/$measurements->count(),1);
             }
         }
     }
@@ -212,6 +266,36 @@ class Patient extends Model
         }
     }
 
+    public function getBloodSaturationDayThirdAttribute(){
+        $date = $this->days_patient_measurement;
+        if($date->count() > 2){
+            $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[2])->get();
+            if($measurements->count() > 0){
+                return round($measurements->sum('blood_saturation')/$measurements->count(),1);
+            }
+        }
+    }
+
+    public function getArterialFrequencyMinDayThirdAttribute(){
+        $date = $this->days_patient_measurement;
+        if($date->count() > 2){
+            $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[2])->get();
+            if($measurements->count() > 0){
+                return round($measurements->sum('arterial_frequency_min')/$measurements->count(),1);
+            }
+        }
+    }
+
+    public function getArterialFrequencyMaxDayThirdAttribute(){
+        $date = $this->days_patient_measurement;
+        if($date->count() > 2){
+            $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[2])->get();
+            if($measurements->count() > 0){
+                return round($measurements->sum('arterial_frequency_max')/$measurements->count(),1);
+            }
+        }
+    }
+
     public function getWalkDayFourthAttribute(){
         $date = $this->days_patient;
         if($date->count() > 3){
@@ -244,6 +328,36 @@ class Patient extends Model
             $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[3])->get();
             if($measurements->count() > 0){
                 return round($measurements->sum('heart_rate')/$measurements->count(),1);
+            }
+        }
+    }
+
+    public function getBloodSaturationDayFourthAttribute(){
+        $date = $this->days_patient_measurement;
+        if($date->count() > 3){
+            $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[3])->get();
+            if($measurements->count() > 0){
+                return round($measurements->sum('blood_saturation')/$measurements->count(),1);
+            }
+        }
+    }
+
+    public function getArterialFrequencyMinDayFourthAttribute(){
+        $date = $this->days_patient_measurement;
+        if($date->count() > 3){
+            $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[2])->get();
+            if($measurements->count() > 0){
+                return round($measurements->sum('arterial_frequency_min')/$measurements->count(),1);
+            }
+        }
+    }
+
+    public function getArterialFrequencyMaxDayFourthAttribute(){
+        $date = $this->days_patient_measurement;
+        if($date->count() > 3){
+            $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[2])->get();
+            if($measurements->count() > 0){
+                return round($measurements->sum('arterial_frequency_max')/$measurements->count(),1);
             }
         }
     }
@@ -284,6 +398,36 @@ class Patient extends Model
         }
     }
 
+    public function getBloodSaturationeDayFifthAttribute(){
+        $date = $this->days_patient_measurement;
+        if($date->count() > 4){
+            $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[4])->get();
+            if($measurements->count() > 0){
+                return round($measurements->sum('blood_saturation')/$measurements->count(),1);
+            }
+        }
+    }
+
+    public function getArterialFrequencyMinDayFifthAttribute(){
+        $date = $this->days_patient_measurement;
+        if($date->count() > 4){
+            $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[2])->get();
+            if($measurements->count() > 0){
+                return round($measurements->sum('arterial_frequency_min')/$measurements->count(),1);
+            }
+        }
+    }
+
+    public function getArterialFrequencyMaxDayFifthAttribute(){
+        $date = $this->days_patient_measurement;
+        if($date->count() > 4){
+            $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[2])->get();
+            if($measurements->count() > 0){
+                return round($measurements->sum('arterial_frequency_max')/$measurements->count(),1);
+            }
+        }
+    }
+
     public function getWalkDaySixthAttribute(){
         $date = $this->days_patient;
         if($date->count() > 5){
@@ -316,6 +460,36 @@ class Patient extends Model
             $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[5])->get();
             if($measurements->count() > 0){
                 return round($measurements->sum('heart_rate')/$measurements->count(),1);
+            }
+        }
+    }
+
+    public function getBloodSaturationDaySixthAttribute(){
+        $date = $this->days_patient_measurement;
+        if($date->count() > 5){
+            $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[5])->get();
+            if($measurements->count() > 0){
+                return round($measurements->sum('blood_saturation')/$measurements->count(),1);
+            }
+        }
+    }
+
+    public function getArterialFrequencyMinDaySixthAttribute(){
+        $date = $this->days_patient_measurement;
+        if($date->count() > 5){
+            $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[2])->get();
+            if($measurements->count() > 0){
+                return round($measurements->sum('arterial_frequency_min')/$measurements->count(),1);
+            }
+        }
+    }
+
+    public function getArterialFrequencyMaxDaySixthAttribute(){
+        $date = $this->days_patient_measurement;
+        if($date->count() > 5){
+            $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[2])->get();
+            if($measurements->count() > 0){
+                return round($measurements->sum('arterial_frequency_max')/$measurements->count(),1);
             }
         }
     }
@@ -356,6 +530,36 @@ class Patient extends Model
         }
     }
 
+    public function getBloodSaturationDaySeventhAttribute(){
+        $date = $this->days_patient_measurement;
+        if($date->count() > 6){
+            $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[6])->get();
+            if($measurements->count() > 0){
+                return round($measurements->sum('blood_saturation')/$measurements->count(),1);
+            }
+        }
+    }
+
+    public function getArterialFrequencyMinDaySeventhAttribute(){
+        $date = $this->days_patient_measurement;
+        if($date->count() > 6){
+            $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[2])->get();
+            if($measurements->count() > 0){
+                return round($measurements->sum('arterial_frequency_min')/$measurements->count(),1);
+            }
+        }
+    }
+
+    public function getArterialFrequencyMaxDaySeventhAttribute(){
+        $date = $this->days_patient_measurement;
+        if($date->count() > 6){
+            $measurements = Measurement::where('patient_id', $this->id)->whereDate('time', $date[2])->get();
+            if($measurements->count() > 0){
+                return round($measurements->sum('arterial_frequency_max')/$measurements->count(),1);
+            }
+        }
+    }
+
     public function getWalkWeekAttribute(){
         $walk = $this->walk_day_first + $this->walk_day_second + $this->walk_day_third + $this->walk_day_fourth + $this->walk_day_fifth + $this->walk_day_sixth + $this->walk_day_seventh;
         return round($walk/7,1);
@@ -374,5 +578,20 @@ class Patient extends Model
     public function getHeartRateWeekAttribute(){
         $heart_rate = $this->heart_rate_day_first + $this->heart_rate_day_second + $this->heart_rate_day_third + $this->heart_rate_day_fourth + $this->heart_rate_day_fifth + $this->heart_rate_day_sixth + $this->heart_rate_day_seventh;
         return round($heart_rate/7,1);
+    }
+
+    public function getBloodSaturationWeekAttribute(){
+        $blood_saturation = $this->blood_saturation_day_first + $this->blood_saturation_day_second + $this->blood_saturation_day_third + $this->blood_saturation_day_fourth + $this->blood_saturation_day_fifth + $this->blood_saturation_day_sixth + $this->blood_saturation_day_seventh;
+        return round($blood_saturation/7,1);
+    }
+
+    public function getArterialFrequencyMinWeekAttribute(){
+        $arterial_frequency_min = $this->arterial_frequency_min_day_first + $this->arterial_frequency_min_day_second + $this->arterial_frequency_min_day_third + $this->arterial_frequency_min_day_fourth + $this->arterial_frequency_min_day_fifth + $this->arterial_frequency_min_day_sixth + $this->arterial_frequency_min_day_seventh;
+        return round($arterial_frequency_min/7,1);
+    }
+
+    public function getArterialFrequencyMaxWeekAttribute(){
+        $arterial_frequency_max = $this->arterial_frequency_max_day_first + $this->arterial_frequency_max_day_second + $this->arterial_frequency_max_day_third + $this->arterial_frequency_max_day_fourth + $this->arterial_frequency_max_day_fifth + $this->arterial_frequency_max_day_sixth + $this->arterial_frequency_max_day_seventh;
+        return round($arterial_frequency_max/7,1);
     }
 }

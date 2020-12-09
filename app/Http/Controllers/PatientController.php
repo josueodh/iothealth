@@ -7,6 +7,7 @@ use App\Cid;
 use Illuminate\Http\Request;
 use App\Http\Requests\PatientRequest;
 use Excel;
+use App\Exports\PatientsTable;
 use App\Exports\PatientTable;
 class PatientController extends Controller
 {
@@ -117,6 +118,11 @@ class PatientController extends Controller
 
 
     public function excel(){
-        return Excel::download(new PatientTable, 'resumo.xlsx', 'Html');
+        return Excel::download(new PatientsTable, 'resumo.xlsx', 'Html');
+    }
+
+
+    public function excelPatient(Patient $patient){
+        return Excel::download(new PatientsTable($patient), $patient->name .'-diario.xlsx', 'Html');
     }
 }

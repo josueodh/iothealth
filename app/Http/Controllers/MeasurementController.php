@@ -93,7 +93,4 @@ class MeasurementController extends Controller
         return redirect()->route('measurements.index')->with('success',true);
     }
 
-    public function excel(Patient $patient){
-        return Excel::download(new MeasurementTable($patient), $patient->name .'-dados.xlsx', 'Html');
-     }
 }
