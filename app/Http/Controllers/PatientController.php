@@ -123,6 +123,6 @@ class PatientController extends Controller
 
 
     public function excelPatient(Patient $patient){
-        return Excel::download(new PatientsTable($patient), $patient->name .'-diario.xlsx', 'Html');
+        return Excel::download(new PatientTable($patient), $patient->name .'-diario.xlsx', 'Html');
     }
 }
