@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Measurement;
 use App\Patient;
 use Illuminate\Http\Request;
-use Excel;
-use App\Exports\MeasurementTable;
+use Yajra\DataTables\DataTables;
+
 class MeasurementController extends Controller
 {
     /**
@@ -17,7 +17,7 @@ class MeasurementController extends Controller
     public function index()
     {
         $measurements = Measurement::all();
-        return view('measurements.index',compact('measurements'));
+        return view('measurements.index', compact('measurements'));
     }
 
     /**
@@ -29,7 +29,7 @@ class MeasurementController extends Controller
     {
         $measurement = new Measurement();
         $patients = Patient::all();
-        return view('measurements.create',compact('measurement','patients'));
+        return view('measurements.create', compact('measurement', 'patients'));
     }
 
     /**
@@ -41,7 +41,7 @@ class MeasurementController extends Controller
     public function store(Request $request)
     {
         Measurement::create($request->all());
-        return redirect()->route('measurements.index')->with('success',true);
+        return redirect()->route('measurements.index')->with('success', true);
     }
 
     /**
@@ -53,7 +53,7 @@ class MeasurementController extends Controller
     public function show(Measurement $measurement)
     {
         $patients = Patient::all();
-        return view('measurements.show',compact('measurement','patients'));
+        return view('measurements.show', compact('measurement', 'patients'));
     }
 
     /**
@@ -65,7 +65,7 @@ class MeasurementController extends Controller
     public function edit(Measurement $measurement)
     {
         $patients = Patient::all();
-        return view('measurements.edit',compact('measurement','patients'));
+        return view('measurements.edit', compact('measurement', 'patients'));
     }
 
     /**
@@ -78,7 +78,7 @@ class MeasurementController extends Controller
     public function update(Request $request, Measurement $measurement)
     {
         $measurement->update($request->all());
-        return redirect()->route('measurements.index')->with('success',true);
+        return redirect()->route('measurements.index')->with('success', true);
     }
 
     /**
@@ -90,7 +90,29 @@ class MeasurementController extends Controller
     public function destroy(Measurement $measurement)
     {
         $measurement->delete();
-        return redirect()->route('measurements.index')->with('success',true);
+        return redirect()->route('measurements.index')->with('success', true);
     }
 
+    public function service()
+    {
+        $measurements = Measurement::with('patient')->select('measurements.*');
+        return Datatables::of($measurements)
+            ->addColumn('date', function ($measurement) {
+                return date('d/m/Y', strtotime($measurement->time));
+            })
+            ->addColumn('action', function ($measurement) {
+                $actionBtn = '';
+                $actionBtn = $actionBtn . '<a href="' . route('measurements.show', $measurement->id) . '" class="btn btn-secondary ml-1"><i class="fas fa-notes-medical"></i></a>';
+                $actionBtn = $actionBtn . '<a href="' . route('measurements.edit', $measurement->id) . '" class="btn btn-primary ml-1"><i class="fas fa-edit"></i></a>';
+                $actionBtn = $actionBtn . '
+                <form  action="' .  route('measurements.destroy', $measurement->id)  . '" method="post">
+                    <input type="hidden" name="_token" value="' .  request()->session()->token() . '">
+                    <input type="hidden" name="_method" value="delete">
+                    <button type="button"  class="btn btn-danger btn-delete"><i class="fas fa-trash-alt"></i></button>
+                </form>
+            ';
+                return $actionBtn;
+            })
+            ->toJson();
+    }
 }
