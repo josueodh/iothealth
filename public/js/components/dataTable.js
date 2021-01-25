@@ -1,6 +1,4 @@
 function serverSide(actionPosition, columns, route) {
-    console.log("alo");
-
     $(function() {
         $(".dataTable").DataTable({
             language: {
